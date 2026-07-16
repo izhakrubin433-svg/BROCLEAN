@@ -1,47 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ShieldCheck,
-  Clock,
-  Users,
-  Sparkles,
-  Heart,
-  BadgeDollarSign,
-} from "lucide-react";
+import { ShieldCheck, Clock, Users, Sparkles, Heart, BadgeDollarSign } from "lucide-react";
 import Image from "next/image";
 
 const features = [
-  {
-    icon: Users,
-    title: "צוות מקצועי",
-    description: "עובדים מיומנים, מאומנים ואמינים עם ניסיון רב בתחום הניקיון.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "שירות אמין",
-    description: "מגיעים בזמן, עושים את העבודה ביסודיות ועומדים בכל הבטחה.",
-  },
-  {
-    icon: Clock,
-    title: "זמינות גבוהה",
-    description: "זמינים 6 ימים בשבוע, כולל שעות ערב. מתאימים לוח זמנים לצרכיכם.",
-  },
-  {
-    icon: Sparkles,
-    title: "עבודה יסודית",
-    description: "לא מסתפקים בפחות מהמושלם. כל פינה מקבלת את הטיפול הראוי.",
-  },
-  {
-    icon: Heart,
-    title: "יחס אישי",
-    description: "כל לקוח מקבל תשומת לב מלאה. אנחנו מקשיבים ומתאימים את השירות.",
-  },
-  {
-    icon: BadgeDollarSign,
-    title: "מחירים הוגנים",
-    description: "תמחור שקוף ללא הפתעות. איכות פרימיום במחיר שמתאים לתקציב.",
-  },
+  { icon: Users,           title: "צוות מקצועי",    description: "עובדים מיומנים, מאומנים ואמינים עם ניסיון רב בתחום הניקיון." },
+  { icon: ShieldCheck,     title: "שירות אמין",     description: "מגיעים בזמן, עושים את העבודה ביסודיות ועומדים בכל הבטחה." },
+  { icon: Clock,           title: "זמינות גבוהה",   description: "זמינים 6 ימים בשבוע, כולל שעות ערב. מתאימים לוח זמנים לצרכיכם." },
+  { icon: Sparkles,        title: "עבודה יסודית",   description: "לא מסתפקים בפחות מהמושלם. כל פינה מקבלת את הטיפול הראוי." },
+  { icon: Heart,           title: "יחס אישי",       description: "כל לקוח מקבל תשומת לב מלאה. אנחנו מקשיבים ומתאימים את השירות." },
+  { icon: BadgeDollarSign, title: "מחירים הוגנים",  description: "תמחור שקוף ללא הפתעות. איכות פרימיום במחיר שמתאים לתקציב." },
 ];
 
 export default function WhyUs() {
@@ -49,6 +18,7 @@ export default function WhyUs() {
     <section id="why-us" className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+
           {/* Image side */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -56,6 +26,9 @@ export default function WhyUs() {
             viewport={{ once: true }}
             className="relative order-2 lg:order-1"
           >
+            {/* Background blob */}
+            <div className="absolute inset-0 bg-brand-100 rounded-3xl -rotate-3 scale-95" />
+
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5]">
               <Image
                 src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&q=80"
@@ -63,24 +36,41 @@ export default function WhyUs() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-900/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-900/50 to-transparent" />
             </div>
-            {/* Floating card */}
+
+            {/* Floating card — satisfaction */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
+              animate={{ y: [0, -6, 0] }}
               className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-5 border border-slate-100"
             >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-accent-500 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
                   <ShieldCheck className="text-white" size={22} />
                 </div>
                 <div>
                   <div className="font-black text-2xl text-slate-900">100%</div>
                   <div className="text-slate-500 text-sm">שביעות רצון מובטחת</div>
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Floating card — experience */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.45 }}
+              animate={{ y: [0, 6, 0] }}
+              className="absolute -top-6 -right-6 bg-brand-600 rounded-2xl shadow-2xl p-4 text-white"
+            >
+              <div className="text-center">
+                <div className="font-black text-3xl">5+</div>
+                <div className="text-blue-200 text-xs">שנות ניסיון</div>
               </div>
             </motion.div>
           </motion.div>
@@ -106,7 +96,7 @@ export default function WhyUs() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {features.map((f, i) => (
                 <motion.div
                   key={f.title}
@@ -114,10 +104,10 @@ export default function WhyUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.07 }}
-                  className="flex gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-colors"
+                  className="flex gap-4 p-4 rounded-2xl border border-transparent hover:border-brand-100 hover:bg-brand-50/50 transition-all group"
                 >
-                  <div className="w-11 h-11 bg-brand-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <f.icon size={20} className="text-brand-600" />
+                  <div className="w-11 h-11 bg-brand-100 group-hover:bg-brand-600 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors">
+                    <f.icon size={20} className="text-brand-600 group-hover:text-white transition-colors" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">{f.title}</h3>
