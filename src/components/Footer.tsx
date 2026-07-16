@@ -24,13 +24,13 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="tel:+972500000000"
+                href="tel:+972502328041"
                 className="w-10 h-10 bg-white/10 hover:bg-brand-600 rounded-xl flex items-center justify-center transition-colors"
               >
                 <Phone size={18} />
               </a>
               <a
-                href="https://wa.me/972500000000"
+                href="https://wa.me/972502328041"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 hover:bg-green-600 rounded-xl flex items-center justify-center transition-colors"
@@ -71,12 +71,12 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-5">יצירת קשר</h4>
             <div className="flex flex-col gap-4 text-slate-400 text-sm">
-              <a href="tel:+972500000000" className="flex items-center gap-2 hover:text-white transition-colors">
+              <a href="tel:+972502328041" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Phone size={15} />
-                050-000-0000
+                050-232-8041
               </a>
               <a
-                href="https://wa.me/972500000000"
+                href="https://wa.me/972502328041"
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <MessageCircle size={15} />

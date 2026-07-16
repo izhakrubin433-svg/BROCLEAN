@@ -74,7 +74,7 @@ export default function Hero() {
             className="flex flex-wrap gap-4"
           >
             <a
-              href="tel:+972500000000"
+              href="tel:+972502328041"
               className="flex items-center gap-2 bg-white text-brand-700 hover:bg-blue-50 px-7 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl hover:shadow-white/20 hover:-translate-y-0.5"
             >
               <Phone size={20} />
@@ -87,7 +87,7 @@ export default function Hero() {
               קבלת הצעת מחיר
             </a>
             <a
-              href="https://wa.me/972500000000?text=שלום, אני מעוניין בשירותי ניקיון"
+              href="https://wa.me/972502328041?text=שלום, אני מעוניין בשירותי ניקיון"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white px-7 py-4 rounded-2xl font-bold text-lg transition-all"

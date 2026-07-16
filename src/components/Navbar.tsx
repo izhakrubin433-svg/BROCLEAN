@@ -62,7 +62,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <a
-          href="tel:+972500000000"
+          href="tel:+972502328041"
           className="hidden lg:flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50"
         >
           <Phone size={16} />
@@ -99,7 +99,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="tel:+972500000000"
+                href="tel:+972502328041"
                 className="mt-2 flex items-center justify-center gap-2 bg-brand-600 text-white py-3 rounded-xl font-semibold"
               >
                 <Phone size={16} />

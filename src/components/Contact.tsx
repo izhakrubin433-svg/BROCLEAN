@@ -63,7 +63,7 @@ export default function Contact() {
 
               <div className="flex flex-col gap-6">
                 <a
-                  href="tel:+972500000000"
+                  href="tel:+972502328041"
                   className="flex items-center gap-4 group"
                 >
                   <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
@@ -71,12 +71,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-blue-200 text-sm">טלפון</div>
-                    <div className="font-bold text-lg">050-000-0000</div>
+                    <div className="font-bold text-lg">050-232-8041</div>
                   </div>
                 </a>
 
                 <a
-                  href="https://wa.me/972500000000"
+                  href="https://wa.me/972502328041"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 group"
@@ -173,7 +173,7 @@ export default function Contact() {
                     required
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    placeholder="050-000-0000"
+                    placeholder="050-232-8041"
                     className="w-full border-2 border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-500 transition-colors"
                     dir="ltr"
                   />
@@ -218,8 +218,8 @@ export default function Contact() {
 
                 <p className="text-center text-slate-400 text-sm">
                   או התקשרו ישירות:{" "}
-                  <a href="tel:+972500000000" className="text-brand-600 font-semibold">
-                    050-000-0000
+                  <a href="tel:+972502328041" className="text-brand-600 font-semibold">
+                    050-232-8041
                   </a>
                 </p>
               </form>

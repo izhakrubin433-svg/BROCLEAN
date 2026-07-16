@@ -25,14 +25,14 @@ export default function CTABanner() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="tel:+972500000000"
+              href="tel:+972502328041"
               className="flex items-center gap-2 bg-white text-brand-700 hover:bg-blue-50 px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl hover:-translate-y-0.5"
             >
               <Phone size={20} />
-              050-000-0000
+              050-232-8041
             </a>
             <a
-              href="https://wa.me/972500000000"
+              href="https://wa.me/972502328041"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl hover:-translate-y-0.5"

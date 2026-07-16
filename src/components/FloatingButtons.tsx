@@ -8,7 +8,7 @@ export default function FloatingButtons() {
     <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
       {/* WhatsApp */}
       <motion.a
-        href="https://wa.me/972500000000?text=שלום, אני מעוניין בשירותי ניקיון"
+        href="https://wa.me/972502328041?text=שלום, אני מעוניין בשירותי ניקיון"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0 }}
