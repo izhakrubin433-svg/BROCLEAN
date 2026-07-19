@@ -28,26 +28,26 @@ function GalleryCard({ before, after, label, index }: { before: string; after: s
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="bg-zinc-900 rounded-2xl overflow-hidden shadow-lg border border-white/10 hover:border-gold-500/30 transition-all"
+      className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:border-gray-300 hover:shadow-lg transition-all"
     >
       <div className="grid grid-cols-2">
         <div className="relative aspect-square">
           <Image src={before} alt={`לפני - ${label}`} fill className="object-cover" />
-          <div className="absolute inset-0 bg-red-900/30" />
-          <span className="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">
+          <div className="absolute inset-0 bg-gray-900/20" />
+          <span className="absolute top-3 right-3 bg-gray-900 text-white text-xs font-bold px-2.5 py-1 rounded-full">
             לפני
           </span>
         </div>
         <div className="relative aspect-square">
           <Image src={after} alt={`אחרי - ${label}`} fill className="object-cover" />
-          <div className="absolute inset-0 bg-gold-500/10" />
-          <span className="absolute top-3 left-3 bg-gold-500 text-black text-xs font-bold px-2.5 py-1 rounded-full">
+          <div className="absolute inset-0 bg-white/10" />
+          <span className="absolute top-3 left-3 bg-white text-gray-900 text-xs font-bold px-2.5 py-1 rounded-full border border-gray-200">
             אחרי
           </span>
         </div>
       </div>
       <div className="p-4 text-center">
-        <span className="font-semibold text-white/80">{label}</span>
+        <span className="font-semibold text-gray-700">{label}</span>
       </div>
     </motion.div>
   );
@@ -55,7 +55,7 @@ function GalleryCard({ before, after, label, index }: { before: string; after: s
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="py-24 bg-zinc-950">
+    <section id="gallery" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,13 +63,13 @@ export default function Gallery() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block bg-gold-500/20 text-gold-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-gray-100 text-gray-600 text-sm font-semibold px-4 py-1.5 rounded-full mb-4 border border-gray-200">
             גלריית עבודות
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
             לפני ואחרי
           </h2>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
+          <p className="text-gray-500 text-lg max-w-xl mx-auto">
             התוצאות מדברות בעד עצמן — ראו את ההבדל שאנחנו עושים
           </p>
         </motion.div>
@@ -92,7 +92,7 @@ export default function Gallery() {
             "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80",
             "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
           ].map((src, i) => (
-            <div key={i} className="relative aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-gold-500/20 hover:shadow-xl transition-shadow border border-white/5">
+            <div key={i} className="relative aspect-square rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
               <Image src={src} alt="עבודת ניקיון" fill className="object-cover hover:scale-105 transition-transform duration-500" />
             </div>
           ))}

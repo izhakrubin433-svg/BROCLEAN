@@ -43,17 +43,17 @@ const trustBadges = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=85"
           alt="רקע בניין עסקי"
           fill
-          className="object-cover opacity-30"
+          className="object-cover opacity-10"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/90" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-28 pb-16 w-full">
@@ -65,11 +65,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 bg-gray-100 border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
             >
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={12} className="fill-yellow-400 text-yellow-400" />
+                  <Star key={i} size={12} className="fill-silver-500 text-silver-500" style={{fill:"#adb5bd",color:"#adb5bd"}} />
                 ))}
               </div>
               <span>מדורגים 5/5 על ידי לקוחותינו</span>
@@ -79,11 +79,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-[4.5rem] font-black text-white leading-[1.1] mb-6"
+              className="text-5xl md:text-6xl lg:text-[4.5rem] font-black text-gray-900 leading-[1.1] mb-6"
             >
               ניקיון מקצועי
               <br />
-              <span className="text-gold-500">למשרדים ובניינים</span>
+              <span style={{background:"linear-gradient(135deg,#868e96,#adb5bd,#dee2e6)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",backgroundClip:"text"}}>למשרדים ובניינים</span>
               <br />
               ברמה אחרת
             </motion.h1>
@@ -92,7 +92,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-white/80 mb-8 leading-relaxed max-w-lg"
+              className="text-lg text-gray-500 mb-8 leading-relaxed max-w-lg"
             >
               שירותי ניקיון יסודיים למשרדים ובניינים בלבד. מקצועיות, אמינות ודיסקרטיות בכל עבודה.
             </motion.p>
@@ -104,8 +104,8 @@ export default function Hero() {
               className="flex flex-wrap gap-2 mb-8"
             >
               {trustBadges.map((b) => (
-                <span key={b} className="flex items-center gap-1.5 bg-white/10 backdrop-blur border border-white/20 text-white text-xs font-medium px-3 py-1.5 rounded-full">
-                  <CheckCircle size={12} className="text-gold-500" />
+                <span key={b} className="flex items-center gap-1.5 bg-gray-100 border border-gray-200 text-gray-600 text-xs font-medium px-3 py-1.5 rounded-full">
+                  <CheckCircle size={12} className="text-gray-400" />
                   {b}
                 </span>
               ))}
@@ -119,14 +119,14 @@ export default function Hero() {
             >
               <a
                 href="tel:+972502328041"
-                className="group flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-black px-7 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl shadow-gold-500/30 hover:-translate-y-1"
+                className="group flex items-center gap-2 bg-gray-900 hover:bg-black text-white px-7 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl shadow-gray-400/30 hover:-translate-y-1"
               >
                 <Phone size={20} className="group-hover:animate-bounce" />
                 050-232-8041
               </a>
               <a
                 href="#contact"
-                className="flex items-center gap-2 bg-white hover:bg-gray-100 text-black px-7 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl hover:-translate-y-1"
+                className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-900 px-7 py-4 rounded-2xl font-bold text-lg transition-all shadow-xl hover:-translate-y-1"
               >
                 קבלת הצעת מחיר
                 <ArrowLeft size={18} />
@@ -135,7 +135,7 @@ export default function Hero() {
                 href="https://wa.me/972502328041?text=שלום, אני מעוניין בשירותי ניקיון"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 border border-gold-500 bg-transparent text-white px-6 py-4 rounded-2xl font-bold text-lg transition-all hover:bg-gold-500/10"
+                className="flex items-center gap-2 border-2 border-gray-300 bg-transparent text-gray-700 px-6 py-4 rounded-2xl font-bold text-lg transition-all hover:border-gray-500 hover:bg-gray-50"
               >
                 <MessageCircle size={20} />
                 WhatsApp
@@ -146,14 +146,14 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-4 gap-4 pt-8 border-t border-white/20"
+              className="grid grid-cols-4 gap-4 pt-8 border-t border-gray-200"
             >
               {stats.map((s) => (
                 <div key={s.label} className="text-center">
-                  <div className="text-2xl md:text-3xl font-black text-white">
+                  <div className="text-2xl md:text-3xl font-black text-gray-900">
                     <AnimatedCounter target={s.target} suffix={s.suffix} />
                   </div>
-                  <div className="text-white/60 text-xs mt-1 leading-tight">{s.label}</div>
+                  <div className="text-gray-400 text-xs mt-1 leading-tight">{s.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -175,14 +175,14 @@ export default function Hero() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-6 right-6 flex items-center gap-3 bg-black/60 backdrop-blur rounded-2xl p-3 border border-white/10">
-                <div className="w-10 h-10 bg-gold-500 rounded-xl flex items-center justify-center">
-                  <CheckCircle size={20} className="text-black" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
+              <div className="absolute bottom-6 right-6 flex items-center gap-3 bg-white/90 backdrop-blur rounded-2xl p-3 border border-gray-200 shadow-lg">
+                <div className="w-10 h-10 bg-gray-900 rounded-xl flex items-center justify-center">
+                  <CheckCircle size={20} className="text-white" />
                 </div>
                 <div>
-                  <div className="font-black text-white text-sm">עבודה הושלמה!</div>
-                  <div className="text-white/50 text-xs">לפני 5 דקות</div>
+                  <div className="font-black text-gray-900 text-sm">עבודה הושלמה!</div>
+                  <div className="text-gray-400 text-xs">לפני 5 דקות</div>
                 </div>
               </div>
             </div>
@@ -191,17 +191,17 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -bottom-6 -left-6 bg-zinc-900 rounded-2xl shadow-2xl p-4 border border-white/10"
+              className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-4 border border-gray-200"
             >
               <div className="flex items-center gap-3">
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
+                    <Star key={i} size={14} style={{fill:"#adb5bd",color:"#adb5bd"}} />
                   ))}
                 </div>
                 <div>
-                  <div className="font-bold text-white text-sm">דנה כהן</div>
-                  <div className="text-white/40 text-xs">&quot;שירות מדהים!&quot;</div>
+                  <div className="font-bold text-gray-900 text-sm">דנה כהן</div>
+                  <div className="text-gray-400 text-xs">&quot;שירות מדהים!&quot;</div>
                 </div>
               </div>
             </motion.div>
@@ -210,11 +210,11 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -5, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-              className="absolute top-1/2 -left-8 -translate-y-1/2 bg-gold-500 text-black rounded-2xl shadow-2xl p-4"
+              className="absolute top-1/2 -left-8 -translate-y-1/2 bg-gray-900 text-white rounded-2xl shadow-2xl p-4"
             >
               <div className="text-center">
                 <div className="text-2xl font-black">500+</div>
-                <div className="text-black/70 text-xs">לקוחות</div>
+                <div className="text-gray-400 text-xs">לקוחות</div>
               </div>
             </motion.div>
           </motion.div>
