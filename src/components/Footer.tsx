@@ -78,7 +78,7 @@ export default function Footer() {
               </a>
               <div className="flex items-center gap-2">
                 <MapPin size={15} />
-                מרכז הארץ ופריפריה
+                מרכז הארץ
               </div>
             </div>
           </div>

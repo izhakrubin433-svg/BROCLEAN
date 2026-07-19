@@ -8,11 +8,27 @@ const serviceOptions = ["ניקיון משרדים", "ניקיון בנייני�
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading]     = useState(false);
+  const [error, setError]         = useState("");
   const [form, setForm] = useState({ name: "", phone: "", service: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setError("אירעה שגיאה, נסו שוב או התקשרו ישירות.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -85,7 +101,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-white/40 text-sm">אזורי שירות</div>
-                    <div className="font-bold text-white">מרכז הארץ ופריפריה</div>
+                    <div className="font-bold text-white">מרכז הארץ</div>
                   </div>
                 </div>
               </div>
@@ -174,11 +190,16 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 text-black py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-gold-500/30 hover:-translate-y-0.5"
+                  disabled={loading}
+                  className="flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 disabled:opacity-60 text-black py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-gold-500/30 hover:-translate-y-0.5"
                 >
                   <Send size={20} />
-                  שלחו הודעה
+                  {loading ? "שולח..." : "שלחו הודעה"}
                 </button>
+
+                {error && (
+                  <p className="text-center text-red-400 text-sm">{error}</p>
+                )}
 
                 <p className="text-center text-white/30 text-sm">
                   או התקשרו ישירות:{" "}
