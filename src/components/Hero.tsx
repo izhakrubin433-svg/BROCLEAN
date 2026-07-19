@@ -28,9 +28,9 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 const stats = [
-  { target: 500, suffix: "+", label: "לקוחות מרוצים" },
-  { target: 5,   suffix: "+", label: "שנות ניסיון" },
-  { target: 100, suffix: "%", label: "שביעות רצון" },
+  { target: 500, suffix: "+",  label: "לקוחות מרוצים" },
+  { target: 5,   suffix: "+",  label: "שנות ניסיון" },
+  { target: 100, suffix: "%",  label: "שביעות רצון" },
   { target: 24,  suffix: "/7", label: "זמינות" },
 ];
 
@@ -43,22 +43,29 @@ const trustBadges = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden animated-gradient">
-      {/* Decorative blobs */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl" />
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=85"
+          alt="רקע בניין עסקי"
+          fill
+          className="object-cover opacity-30"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-28 pb-16 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* ── Left: Content ── */}
           <div>
-            {/* Stars badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 glass text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
             >
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
@@ -68,7 +75,6 @@ export default function Hero() {
               <span>מדורגים 5/5 על ידי לקוחותינו</span>
             </motion.div>
 
-            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -77,7 +83,7 @@ export default function Hero() {
             >
               ניקיון מקצועי
               <br />
-              <span className="text-emerald-400">לעסקים ובתים</span>
+              <span className="text-gold-500">למשרדים ובניינים</span>
               <br />
               ברמה אחרת
             </motion.h1>
@@ -86,13 +92,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-blue-100 mb-8 leading-relaxed max-w-lg"
+              className="text-lg text-white/80 mb-8 leading-relaxed max-w-lg"
             >
-              שירותי ניקיון יסודיים, אמינים ומקצועיים בהתאמה אישית.
-              אנחנו לא רק מנקים — אנחנו יוצרים סביבה נקייה ומרעננת.
+              שירותי ניקיון יסודיים למשרדים ובניינים בלבד. מקצועיות, אמינות ודיסקרטיות בכל עבודה.
             </motion.p>
 
-            {/* Trust badges */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -100,14 +104,13 @@ export default function Hero() {
               className="flex flex-wrap gap-2 mb-8"
             >
               {trustBadges.map((b) => (
-                <span key={b} className="flex items-center gap-1.5 glass text-white/90 text-xs font-medium px-3 py-1.5 rounded-full">
-                  <CheckCircle size={12} className="text-emerald-400" />
+                <span key={b} className="flex items-center gap-1.5 bg-white/10 backdrop-blur border border-white/20 text-white text-xs font-medium px-3 py-1.5 rounded-full">
+                  <CheckCircle size={12} className="text-gold-500" />
                   {b}
                 </span>
               ))}
             </motion.div>
 
-            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -116,14 +119,14 @@ export default function Hero() {
             >
               <a
                 href="tel:+972502328041"
-                className="group flex items-center gap-2 bg-white text-brand-700 hover:bg-blue-50 px-7 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl hover:-translate-y-1"
+                className="group flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-black px-7 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl shadow-gold-500/30 hover:-translate-y-1"
               >
                 <Phone size={20} className="group-hover:animate-bounce" />
                 050-232-8041
               </a>
               <a
                 href="#contact"
-                className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-7 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl shadow-emerald-500/30 hover:-translate-y-1"
+                className="flex items-center gap-2 bg-white hover:bg-gray-100 text-black px-7 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl hover:-translate-y-1"
               >
                 קבלת הצעת מחיר
                 <ArrowLeft size={18} />
@@ -132,26 +135,25 @@ export default function Hero() {
                 href="https://wa.me/972502328041?text=שלום, אני מעוניין בשירותי ניקיון"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 glass hover:bg-white/15 text-white px-6 py-4 rounded-2xl font-bold text-lg transition-all"
+                className="flex items-center gap-2 border border-gold-500 bg-transparent text-white px-6 py-4 rounded-2xl font-bold text-lg transition-all hover:bg-gold-500/10"
               >
                 <MessageCircle size={20} />
                 WhatsApp
               </a>
             </motion.div>
 
-            {/* Animated Stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-4 gap-4 pt-8 border-t border-white/15"
+              className="grid grid-cols-4 gap-4 pt-8 border-t border-white/20"
             >
               {stats.map((s) => (
                 <div key={s.label} className="text-center">
                   <div className="text-2xl md:text-3xl font-black text-white">
                     <AnimatedCounter target={s.target} suffix={s.suffix} />
                   </div>
-                  <div className="text-blue-200 text-xs mt-1 leading-tight">{s.label}</div>
+                  <div className="text-white/60 text-xs mt-1 leading-tight">{s.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -173,31 +175,23 @@ export default function Hero() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-900/30 to-transparent" />
-            </div>
-
-            {/* Floating card — top left */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-2xl p-4 border border-slate-100"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
-                  <CheckCircle size={20} className="text-emerald-600" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-6 right-6 flex items-center gap-3 bg-black/60 backdrop-blur rounded-2xl p-3 border border-white/10">
+                <div className="w-10 h-10 bg-gold-500 rounded-xl flex items-center justify-center">
+                  <CheckCircle size={20} className="text-black" />
                 </div>
                 <div>
-                  <div className="font-black text-slate-900 text-sm">עבודה הושלמה!</div>
-                  <div className="text-slate-400 text-xs">לפני 5 דקות</div>
+                  <div className="font-black text-white text-sm">עבודה הושלמה!</div>
+                  <div className="text-white/50 text-xs">לפני 5 דקות</div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Floating card — bottom right */}
+            {/* Floating card — bottom left */}
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-4 border border-slate-100"
+              className="absolute -bottom-6 -left-6 bg-zinc-900 rounded-2xl shadow-2xl p-4 border border-white/10"
             >
               <div className="flex items-center gap-3">
                 <div className="flex gap-0.5">
@@ -206,8 +200,8 @@ export default function Hero() {
                   ))}
                 </div>
                 <div>
-                  <div className="font-bold text-slate-900 text-sm">דנה כהן</div>
-                  <div className="text-slate-400 text-xs">"שירות מדהים!"</div>
+                  <div className="font-bold text-white text-sm">דנה כהן</div>
+                  <div className="text-white/40 text-xs">&quot;שירות מדהים!&quot;</div>
                 </div>
               </div>
             </motion.div>
@@ -216,11 +210,11 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -5, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-              className="absolute top-1/2 -left-8 -translate-y-1/2 bg-brand-600 text-white rounded-2xl shadow-2xl p-4"
+              className="absolute top-1/2 -left-8 -translate-y-1/2 bg-gold-500 text-black rounded-2xl shadow-2xl p-4"
             >
               <div className="text-center">
                 <div className="text-2xl font-black">500+</div>
-                <div className="text-blue-200 text-xs">לקוחות</div>
+                <div className="text-black/70 text-xs">לקוחות</div>
               </div>
             </motion.div>
           </motion.div>

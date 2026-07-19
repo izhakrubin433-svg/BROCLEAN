@@ -10,14 +10,13 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
-  title: "Broclean - שירותי ניקיון מקצועיים לעסקים ובתים",
+  title: "Broclean - שירותי ניקיון משרדים ובניינים",
   description:
-    "שירותי ניקיון מקצועיים למשרדים, בניינים, דירות ועסקים. עבודה איכותית, אמינה ויסודית. Broclean Cleaning Services.",
+    "שירותי ניקיון מקצועיים למשרדים ובניינים. עבודה איכותית, אמינה ויסודית. Broclean Cleaning Services.",
   keywords: [
     "ניקיון מקצועי",
     "שירותי ניקיון",
     "ניקיון משרדים",
-    "ניקיון דירות",
     "ניקיון בניינים",
     "Broclean",
   ],
@@ -28,9 +27,9 @@ export const metadata: Metadata = {
     locale: "he_IL",
     url: "https://broclean-clean.com",
     siteName: "Broclean Cleaning Services",
-    title: "Broclean - שירותי ניקיון מקצועיים לעסקים ובתים",
+    title: "Broclean - שירותי ניקיון משרדים ובניינים",
     description:
-      "שירותי ניקיון מקצועיים למשרדים, בניינים, דירות ועסקים. עבודה איכותית, אמינה ויסודית.",
+      "שירותי ניקיון מקצועיים למשרדים ובניינים. עבודה איכותית, אמינה ויסודית.",
     images: [
       {
         url: "https://broclean-clean.com/og-image.jpg",
@@ -43,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Broclean - שירותי ניקיון מקצועיים",
-    description: "שירותי ניקיון מקצועיים למשרדים, בניינים, דירות ועסקים.",
+    description: "שירותי ניקיון מקצועיים למשרדים ובניינים.",
   },
   robots: {
     index: true,
@@ -71,7 +70,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "Broclean Cleaning Services",
               description:
-                "שירותי ניקיון מקצועיים למשרדים, בניינים, דירות ועסקים",
+                "שירותי ניקיון מקצועיים למשרדים ובניינים",
               url: "https://broclean-clean.com",
               telephone: "+972-50-000-0000",
               address: {

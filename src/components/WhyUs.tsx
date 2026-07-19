@@ -15,7 +15,7 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="py-24 bg-white overflow-hidden">
+    <section id="why-us" className="py-24 bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -26,8 +26,7 @@ export default function WhyUs() {
             viewport={{ once: true }}
             className="relative order-2 lg:order-1"
           >
-            {/* Background blob */}
-            <div className="absolute inset-0 bg-brand-100 rounded-3xl -rotate-3 scale-95" />
+            <div className="absolute inset-0 bg-zinc-900 rounded-3xl -rotate-3 scale-95" />
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5]">
               <Image
@@ -36,7 +35,7 @@ export default function WhyUs() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-900/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
 
             {/* Floating card — satisfaction */}
@@ -46,15 +45,15 @@ export default function WhyUs() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
               animate={{ y: [0, -6, 0] }}
-              className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-5 border border-slate-100"
+              className="absolute -bottom-6 -left-6 bg-zinc-900 rounded-2xl shadow-2xl p-5 border border-white/10"
             >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
-                  <ShieldCheck className="text-white" size={22} />
+                <div className="w-12 h-12 bg-gold-500 rounded-xl flex items-center justify-center shadow-lg shadow-gold-500/30">
+                  <ShieldCheck className="text-black" size={22} />
                 </div>
                 <div>
-                  <div className="font-black text-2xl text-slate-900">100%</div>
-                  <div className="text-slate-500 text-sm">שביעות רצון מובטחת</div>
+                  <div className="font-black text-2xl text-white">100%</div>
+                  <div className="text-white/50 text-sm">שביעות רצון מובטחת</div>
                 </div>
               </div>
             </motion.div>
@@ -66,11 +65,11 @@ export default function WhyUs() {
               viewport={{ once: true }}
               transition={{ delay: 0.45 }}
               animate={{ y: [0, 6, 0] }}
-              className="absolute -top-6 -right-6 bg-brand-600 rounded-2xl shadow-2xl p-4 text-white"
+              className="absolute -top-6 -right-6 bg-zinc-900 border border-gold-500/30 rounded-2xl shadow-2xl p-4 text-white"
             >
               <div className="text-center">
                 <div className="font-black text-3xl">5+</div>
-                <div className="text-blue-200 text-xs">שנות ניסיון</div>
+                <div className="text-gold-400 text-xs">שנות ניסיון</div>
               </div>
             </motion.div>
           </motion.div>
@@ -82,15 +81,15 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block bg-brand-100 text-brand-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+              <span className="inline-block bg-gold-500/20 text-gold-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
                 למה לבחור בנו
               </span>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
                 הסיבות שלקוחות
                 <br />
-                <span className="text-brand-600">חוזרים אלינו</span>
+                <span className="text-gold-500">חוזרים אלינו</span>
               </h2>
-              <p className="text-slate-500 text-lg mb-10 leading-relaxed">
+              <p className="text-white/50 text-lg mb-10 leading-relaxed">
                 אנחנו לא רק חברת ניקיון — אנחנו שותפים לשמירה על הסביבה שלכם.
                 כל פרט חשוב לנו.
               </p>
@@ -104,14 +103,14 @@ export default function WhyUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.07 }}
-                  className="flex gap-4 p-4 rounded-2xl border border-transparent hover:border-brand-100 hover:bg-brand-50/50 transition-all group"
+                  className="flex gap-4 p-4 rounded-2xl border border-transparent hover:border-white/10 hover:bg-white/5 transition-all group"
                 >
-                  <div className="w-11 h-11 bg-brand-100 group-hover:bg-brand-600 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors">
-                    <f.icon size={20} className="text-brand-600 group-hover:text-white transition-colors" />
+                  <div className="w-11 h-11 bg-zinc-900 group-hover:bg-gold-500 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors">
+                    <f.icon size={20} className="text-gold-400 group-hover:text-black transition-colors" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">{f.title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed">{f.description}</p>
+                    <h3 className="font-bold text-white mb-1">{f.title}</h3>
+                    <p className="text-white/50 text-sm leading-relaxed">{f.description}</p>
                   </div>
                 </motion.div>
               ))}
