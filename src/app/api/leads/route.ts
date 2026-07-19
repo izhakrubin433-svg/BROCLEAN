@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const APPS_SCRIPT_URL = process.env.GOOGLE_APPS_SCRIPT_URL ?? "";
-
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -11,25 +9,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "שם וטלפון הם שדות חובה" }, { status: 400 });
     }
 
+    const APPS_SCRIPT_URL = process.env.GOOGLE_APPS_SCRIPT_URL;
     if (!APPS_SCRIPT_URL) {
       console.error("GOOGLE_APPS_SCRIPT_URL is not set");
       return NextResponse.json({ error: "שגיאת שרת" }, { status: 500 });
     }
 
-    const payload = {
-      name,
-      phone,
-      service: service || "לא צוין",
-      message: message || "",
-      date: new Date().toLocaleString("he-IL", { timeZone: "Asia/Jerusalem" }),
-    };
-
     const params = new URLSearchParams();
-    params.append("name",    payload.name);
-    params.append("phone",   payload.phone);
-    params.append("service", payload.service);
-    params.append("message", payload.message);
-    params.append("date",    payload.date);
+    params.append("name",    name);
+    params.append("phone",   phone);
+    params.append("service", service || "לא צוין");
+    params.append("message", message || "");
+    params.append("date",    new Date().toLocaleString("he-IL", { timeZone: "Asia/Jerusalem" }));
 
     const res = await fetch(`${APPS_SCRIPT_URL}?${params.toString()}`, {
       method: "GET",
