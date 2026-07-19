@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Phone, MessageCircle, Star, CheckCircle, ArrowLeft } from "lucide-react";
+import ParticlesBackground from "./ParticlesBackground";
 import Image from "next/image";
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -89,10 +90,13 @@ export default function Hero() {
 
       </div>
 
+      {/* Particles */}
+      <ParticlesBackground />
+
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-950/85 via-gray-950/60 to-gray-950/90" />
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-silver-500/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-950/85 via-gray-950/60 to-gray-950/90" style={{ zIndex: 2 }} />
+      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-silver-500/5 rounded-full blur-3xl" style={{ zIndex: 2 }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-28 pb-16 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
