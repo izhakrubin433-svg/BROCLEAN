@@ -14,7 +14,7 @@ const items = [
 
 export default function TrustBar() {
   return (
-    <section className="py-10 bg-white border-y border-gray-100">
+    <section className="py-10 bg-gray-950 border-y border-white/5">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -29,10 +29,10 @@ export default function TrustBar() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
-              className="flex items-center gap-2.5 text-gray-700"
+              className="flex items-center gap-2.5 text-gray-400"
             >
-              <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <item.icon size={16} className="text-gray-600" />
+              <div className="w-8 h-8 bg-white/5 border border-gold-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <item.icon size={16} className="text-gold-500" />
               </div>
               <span className="font-semibold text-sm whitespace-nowrap">{item.label}</span>
             </motion.div>

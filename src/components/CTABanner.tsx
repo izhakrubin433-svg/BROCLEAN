@@ -5,10 +5,10 @@ import { Phone, MessageCircle } from "lucide-react";
 
 export default function CTABanner() {
   return (
-    <section className="py-20 bg-gray-900 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
+    <section className="py-20 bg-black relative overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-silver-500/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
       </div>
 
       <div className="relative max-w-4xl mx-auto px-4 text-center">
@@ -24,19 +24,13 @@ export default function CTABanner() {
             צרו קשר עכשיו וקבלו הצעת מחיר חינמית תוך שעה
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="tel:+972502328041"
-              className="flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl hover:-translate-y-0.5"
-            >
+            <a href="tel:+972502328041"
+              className="flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-black px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-2xl shadow-gold-500/30 hover:-translate-y-0.5">
               <Phone size={20} />
               050-232-8041
             </a>
-            <a
-              href="https://wa.me/972502328041"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 border border-white/30 bg-transparent text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:bg-white/10"
-            >
+            <a href="https://wa.me/972502328041" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 border border-silver-600/40 bg-transparent text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:bg-white/5 hover:border-silver-400">
               <MessageCircle size={20} />
               שלחו הודעה
             </a>
