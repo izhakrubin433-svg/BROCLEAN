@@ -44,6 +44,9 @@ const config: Config = {
           900: "#78350f",
         },
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
       fontFamily: {
         sans: ["var(--font-rubik)", "Rubik", "Heebo", "Assistant", "sans-serif"],
       },

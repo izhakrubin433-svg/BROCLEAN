@@ -44,20 +44,85 @@ const trustBadges = [
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gray-950">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=85"
-          alt="רקע בניין עסקי"
-          fill
-          className="object-cover opacity-10"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/90 via-gray-950/70 to-gray-950/95" />
-        {/* Gold glow */}
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-silver-500/5 rounded-full blur-3xl" />
+      {/* ── Logo watermark background ── */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        {/* Outer slow rotate */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+          className="absolute w-[900px] h-[900px] opacity-[0.03]"
+        >
+          {/* Ring */}
+          <svg viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+            <circle cx="450" cy="450" r="440" stroke="url(#ringGrad)" strokeWidth="1" strokeDasharray="8 6" />
+            <defs>
+              <linearGradient id="ringGrad" x1="0" y1="0" x2="900" y2="900" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#f59e0b" />
+                <stop offset="0.5" stopColor="#d1d5db" />
+                <stop offset="1" stopColor="#f59e0b" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </motion.div>
+
+        {/* Logo SVG — B + skyline, metallic silver */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute w-[680px] h-[680px]"
+        >
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+            <defs>
+              <linearGradient id="silverGrad" x1="80" y1="60" x2="320" y2="340" gradientUnits="userSpaceOnUse">
+                <stop offset="0%"  stopColor="#f3f4f6" stopOpacity="0.9" />
+                <stop offset="30%" stopColor="#9ca3af" stopOpacity="0.7" />
+                <stop offset="60%" stopColor="#d1d5db" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#6b7280" stopOpacity="0.5" />
+              </linearGradient>
+              <linearGradient id="goldAccent" x1="0" y1="0" x2="1" y2="1">
+                <stop stopColor="#f59e0b" stopOpacity="0.6" />
+                <stop offset="1" stopColor="#fbbf24" stopOpacity="0.3" />
+              </linearGradient>
+            </defs>
+
+            {/* ── Letter B outline ── */}
+            <path
+              d="M 95 60 L 95 340
+                 M 95 60 L 200 60 Q 270 60 270 130 Q 270 195 200 200
+                 M 95 200 L 210 200 Q 290 200 290 270 Q 290 340 210 340 L 95 340"
+              stroke="url(#silverGrad)"
+              strokeWidth="18"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+            />
+
+            {/* ── Skyline inside B ── */}
+            {/* buildings */}
+            <rect x="148" y="148" width="14" height="42" rx="2" fill="url(#silverGrad)" opacity="0.9" />
+            <rect x="167" y="132" width="14" height="58" rx="2" fill="url(#silverGrad)" opacity="0.85" />
+            <rect x="186" y="118" width="16" height="72" rx="2" fill="url(#silverGrad)" opacity="0.95" />
+            <rect x="207" y="138" width="14" height="52" rx="2" fill="url(#silverGrad)" opacity="0.8" />
+            <rect x="226" y="155" width="12" height="35" rx="2" fill="url(#silverGrad)" opacity="0.75" />
+            {/* antenna on tallest */}
+            <line x1="194" y1="118" x2="194" y2="100" stroke="url(#goldAccent)" strokeWidth="3" strokeLinecap="round" />
+            <circle cx="194" cy="97" r="3" fill="#f59e0b" opacity="0.7" />
+
+            {/* ── Gold accent line at bottom ── */}
+            <line x1="80" y1="355" x2="320" y2="355" stroke="url(#goldAccent)" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </motion.div>
+
+        {/* Subtle radial glow behind logo */}
+        <div className="absolute w-[600px] h-[600px] rounded-full bg-gradient-radial from-gold-500/8 via-silver-500/4 to-transparent blur-3xl" />
       </div>
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-950/85 via-gray-950/60 to-gray-950/90" />
+      {/* Side glows */}
+      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-silver-500/5 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-28 pb-16 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
