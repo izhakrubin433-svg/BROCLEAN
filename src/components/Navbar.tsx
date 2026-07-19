@@ -64,7 +64,7 @@ export default function Navbar() {
             </div>
             <div className="leading-tight">
               <span className="font-black text-xl text-gray-900">Broclean</span>
-              <p className="text-xs font-medium text-gold-500">Cleaning Services</p>
+              <p className="text-xs font-medium text-gold-500" dir="ltr">Cleaning Services</p>
             </div>
           </a>
 
