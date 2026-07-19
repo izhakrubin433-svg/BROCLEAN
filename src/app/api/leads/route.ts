@@ -24,13 +24,20 @@ export async function POST(req: NextRequest) {
       date: new Date().toLocaleString("he-IL", { timeZone: "Asia/Jerusalem" }),
     };
 
-    const res = await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+    const params = new URLSearchParams();
+    params.append("name",    payload.name);
+    params.append("phone",   payload.phone);
+    params.append("service", payload.service);
+    params.append("message", payload.message);
+    params.append("date",    payload.date);
+
+    const res = await fetch(`${APPS_SCRIPT_URL}?${params.toString()}`, {
+      method: "GET",
+      redirect: "follow",
     });
 
-    if (!res.ok) throw new Error(`Apps Script responded with ${res.status}`);
+    const text = await res.text();
+    if (!text.includes("success")) throw new Error(text);
 
     return NextResponse.json({ success: true });
   } catch (err) {
