@@ -82,7 +82,7 @@ export default function Hero() {
             alt="Broclean logo watermark"
             fill
             className="object-contain"
-            style={{ opacity: 0.18, filter: "grayscale(100%) brightness(2.2) contrast(1.1)" }}
+            style={{ opacity: 0.35, filter: "grayscale(100%) brightness(2.5) contrast(1.3)" }}
             priority
           />
         </motion.div>
