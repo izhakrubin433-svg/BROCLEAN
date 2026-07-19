@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, MessageCircle, Mail, MapPin, Send, CheckCircle } from "lucide-react";
 
-const serviceOptions = ["ניקיון משרדים", "ניקיון בניינים", "אחר"];
+const serviceOptions = ["ניקיון משרדים", "ניקיון בניינים", "ניקיון קליניקות", "חללי עבודה משותפים", "אחר"];
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -59,7 +59,7 @@ export default function Contact() {
                 {[
                   { href: "tel:+972502328041", icon: Phone, label: "טלפון", value: "050-232-8041" },
                   { href: "https://wa.me/972502328041", icon: MessageCircle, label: "WhatsApp", value: "שלחו הודעה עכשיו" },
-                  { href: "mailto:info@broclean-clean.com", icon: Mail, label: "אימייל", value: "info@broclean-clean.com" },
+                  { href: "mailto:broclean14@gmail.com", icon: Mail, label: "אימייל", value: "broclean14@gmail.com" },
                 ].map(({ href, icon: Icon, label, value }) => (
                   <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noopener noreferrer" : undefined}

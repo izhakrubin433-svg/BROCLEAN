@@ -5,20 +5,31 @@ import Image from "next/image";
 
 const galleryItems = [
   {
-    before: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-    after:  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80",
-    label:  "ניקיון משרד",
+    // לפני: רצפת משרד מלוכלכת / אחרי: רצפה נקייה ומבריקה
+    before: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80",
+    after:  "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80",
+    label:  "ניקיון רצפות משרד",
   },
   {
+    // לפני: חדר מדרגות מוזנח / אחרי: לובי נקי ומוקפד
+    before: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80",
+    after:  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80",
+    label:  "ניקיון לובי ומדרגות",
+  },
+  {
+    // לפני: מטבח משרדי מלוכלך / אחרי: מטבח נקי
     before: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
     after:  "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=80",
-    label:  "ניקיון חדר מדרגות",
+    label:  "ניקיון מטבח משרדי",
   },
-  {
-    before: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80",
-    after:  "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
-    label:  "ניקיון לובי ובניין",
-  },
+];
+
+// תמונות גלריה תחתונה — עבודות ניקיון אמיתיות
+const extraPhotos = [
+  "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80",
+  "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=400&q=80",
+  "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&q=80",
+  "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&q=80",
 ];
 
 function GalleryCard({ before, after, label, index }: { before: string; after: string; label: string; index: number }) {
@@ -33,8 +44,8 @@ function GalleryCard({ before, after, label, index }: { before: string; after: s
       <div className="grid grid-cols-2">
         <div className="relative aspect-square">
           <Image src={before} alt={`לפני - ${label}`} fill className="object-cover" />
-          <div className="absolute inset-0 bg-gray-950/40" />
-          <span className="absolute top-3 right-3 bg-gray-950 text-silver-400 border border-silver-600/30 text-xs font-bold px-2.5 py-1 rounded-full">
+          <div className="absolute inset-0 bg-gray-950/30" />
+          <span className="absolute top-3 right-3 bg-gray-950/80 text-silver-400 border border-silver-600/40 text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur-sm">
             לפני
           </span>
         </div>
@@ -47,7 +58,7 @@ function GalleryCard({ before, after, label, index }: { before: string; after: s
         </div>
       </div>
       <div className="p-4 text-center border-t border-white/5">
-        <span className="font-semibold text-gray-300">{label}</span>
+        <span className="font-semibold text-gray-300 text-sm">{label}</span>
       </div>
     </motion.div>
   );
@@ -80,20 +91,16 @@ export default function Gallery() {
           ))}
         </div>
 
+        {/* תמונות נוספות */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6"
         >
-          {[
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80",
-            "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80",
-            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80",
-            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
-          ].map((src, i) => (
+          {extraPhotos.map((src, i) => (
             <div key={i} className="relative aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-gold-500/20 hover:shadow-xl transition-shadow border border-white/5">
-              <Image src={src} alt="עבודת ניקיון" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              <Image src={src} alt="עבודת ניקיון מקצועית" fill className="object-cover hover:scale-105 transition-transform duration-500" />
             </div>
           ))}
         </motion.div>

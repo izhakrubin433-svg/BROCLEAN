@@ -26,7 +26,7 @@ export default function Footer() {
               {[
                 { href: "tel:+972502328041", icon: Phone },
                 { href: "https://wa.me/972502328041", icon: MessageCircle, external: true },
-                { href: "mailto:info@broclean-clean.com", icon: Mail },
+                { href: "mailto:broclean14@gmail.com", icon: Mail },
               ].map(({ href, icon: Icon, external }) => (
                 <a key={href} href={href}
                   target={external ? "_blank" : undefined}
@@ -42,7 +42,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-5 text-gold-400">שירותים</h4>
             <ul className="flex flex-col gap-2.5 text-gray-500">
-              {["ניקיון משרדים", "ניקיון בניינים"].map((s) => (
+              {["ניקיון משרדים", "ניקיון בניינים", "ניקיון קליניקות", "חללי עבודה משותפים"].map((s) => (
                 <li key={s}>
                   <a href="#services" className="hover:text-gold-400 transition-colors text-sm">{s}</a>
                 </li>
@@ -60,8 +60,8 @@ export default function Footer() {
               <a href="https://wa.me/972502328041" className="flex items-center gap-2 hover:text-silver-300 transition-colors">
                 <MessageCircle size={15} className="text-silver-500" /> WhatsApp
               </a>
-              <a href="mailto:info@broclean-clean.com" className="flex items-center gap-2 hover:text-silver-300 transition-colors">
-                <Mail size={15} className="text-silver-500" /> info@broclean-clean.com
+                <a href="mailto:broclean14@gmail.com" className="flex items-center gap-2 hover:text-silver-300 transition-colors">
+                <Mail size={15} className="text-silver-500" /> broclean14@gmail.com
               </a>
               <div className="flex items-center gap-2">
                 <MapPin size={15} className="text-silver-500" /> מרכז הארץ
