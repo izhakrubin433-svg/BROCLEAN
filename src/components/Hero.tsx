@@ -74,8 +74,8 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.88 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 2.5, ease: "easeOut" }}
-          className="absolute w-[900px] h-[400px]"
-          style={{ mixBlendMode: "luminosity", transform: "rotate(-25deg) scaleX(1.3)" }}
+          className="absolute w-[1100px] h-[350px]"
+          style={{ mixBlendMode: "luminosity", transform: "rotate(-30deg)" }}
         >
           <Image
             src="/logo.jpg"
