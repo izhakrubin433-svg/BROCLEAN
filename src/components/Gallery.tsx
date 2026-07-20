@@ -5,26 +5,27 @@ import { motion } from "framer-motion";
 
 const galleryItems = [
   {
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-    label: "ניקיון משרד",
+    // לפני: שולחן משרד מבולגן עם ניירות / אחרי: משרד נקי ומסודר
+    before: "https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&q=80",
+    after:  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    label:  "ניקיון משרד",
   },
   {
-    image: "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80",
-    label: "ניקיון מטבח",
+    // לפני: מטבח מלוכלך / אחרי: מטבח נקי
+    before: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80",
+    after:  "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80",
+    label:  "ניקיון מטבח",
   },
   {
-    image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&q=80",
-    label: "ניקיון רצפות",
+    // לפני: חלל עבודה מבולגן / אחרי: חלל נקי ומסודר
+    before: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80",
+    after:  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
+    label:  "ניקיון חלל עבודה",
   },
 ];
 
-// פילטר "לפני" — נראה מלוכלך, ישן, עמום
-const beforeFilter = "brightness(0.55) saturate(0.4) sepia(0.5) contrast(1.1)";
-// פילטר "אחרי" — נקי, מבריק, חי
-const afterFilter  = "brightness(1.15) saturate(1.3) contrast(1.05)";
-
-function BeforeAfterSlider({ image, label, index }: {
-  image: string; label: string; index: number;
+function BeforeAfterSlider({ before, after, label, index }: {
+  before: string; after: string; label: string; index: number;
 }) {
   const [pos, setPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -58,36 +59,31 @@ function BeforeAfterSlider({ image, label, index }: {
         onTouchMove={(e) => { if (dragging.current) updatePos(e.touches[0].clientX); }}
         onTouchEnd={() => { dragging.current = false; }}
       >
-        {/* AFTER — נקי ומבריק, full background */}
+        {/* AFTER — תמונה נקייה, רקע מלא */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={image}
+          src={after}
           alt={`אחרי - ${label}`}
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: afterFilter }}
           draggable={false}
         />
 
-        {/* BEFORE — מלוכלך, clipped to left */}
+        {/* BEFORE — תמונה מלוכלכת, חתוכה לצד שמאל */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={image}
+          src={before}
           alt={`לפני - ${label}`}
           className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            filter: beforeFilter,
-            clipPath: `inset(0 ${100 - pos}% 0 0)`,
-          }}
+          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
           draggable={false}
         />
 
-        {/* Divider line */}
+        {/* קו מפריד */}
         <div
-          className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-[0_0_14px_rgba(255,255,255,0.7)]"
+          className="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_14px_rgba(255,255,255,0.8)] z-10"
           style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
         >
-          {/* Handle */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 bg-white rounded-full shadow-2xl flex items-center justify-center border-2 border-gold-400">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 bg-white rounded-full shadow-2xl flex items-center justify-center border-2 border-gold-400 z-10">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M7 5L3 10L7 15" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M13 5L17 10L13 15" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -95,15 +91,14 @@ function BeforeAfterSlider({ image, label, index }: {
           </div>
         </div>
 
-        {/* Labels */}
-        <span className="absolute top-3 right-3 bg-black/80 text-gray-300 border border-white/20 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm pointer-events-none">
+        {/* תוויות */}
+        <span className="absolute top-3 right-3 bg-black/80 text-gray-300 border border-white/20 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm pointer-events-none z-10">
           לפני
         </span>
-        <span className="absolute top-3 left-3 bg-gold-500 text-black text-xs font-bold px-3 py-1 rounded-full pointer-events-none">
+        <span className="absolute top-3 left-3 bg-gold-500 text-black text-xs font-bold px-3 py-1 rounded-full pointer-events-none z-10">
           אחרי
         </span>
-
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/50 text-xs pointer-events-none tracking-wider">
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/50 text-xs pointer-events-none tracking-wider z-10">
           ← גרור →
         </div>
       </div>
