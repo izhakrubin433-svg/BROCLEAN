@@ -2,23 +2,25 @@
 
 import { useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const galleryItems = [
   {
-    before: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&q=80",
-    after:  "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80",
-    label:  "ניקיון רצפות משרד",
+    // לפני: חדר מלוכלך עם אשפה / אחרי: משרד נקי ומסודר
+    before: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    after:  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    label:  "ניקיון משרד",
   },
   {
-    before: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
-    after:  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80",
-    label:  "ניקיון לובי ומדרגות",
-  },
-  {
-    before: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+    // לפני: מטבח מלוכלך / אחרי: מטבח נקי ומבריק
+    before: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
     after:  "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80",
-    label:  "ניקיון מטבח משרדי",
+    label:  "ניקיון מטבח",
+  },
+  {
+    // לפני: רצפה מלוכלכת / אחרי: רצפה נקייה ומבריקה
+    before: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800&q=80",
+    after:  "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&q=80",
+    label:  "ניקיון רצפות",
   },
 ];
 
@@ -33,7 +35,7 @@ function BeforeAfterSlider({ before, after, label, index }: {
     const el = containerRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    const pct = Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100));
+    const pct = Math.min(98, Math.max(2, ((clientX - rect.left) / rect.width) * 100));
     setPos(pct);
   }, []);
 
@@ -45,10 +47,10 @@ function BeforeAfterSlider({ before, after, label, index }: {
       transition={{ delay: index * 0.1 }}
       className="bg-gray-900 rounded-2xl overflow-hidden border border-white/10 hover:border-gold-500/30 transition-all shadow-xl"
     >
-      {/* Slider */}
       <div
         ref={containerRef}
-        className="relative aspect-video cursor-col-resize select-none"
+        className="relative select-none cursor-col-resize"
+        style={{ aspectRatio: "16/9" }}
         onMouseDown={(e) => { dragging.current = true; updatePos(e.clientX); }}
         onMouseMove={(e) => { if (dragging.current) updatePos(e.clientX); }}
         onMouseUp={() => { dragging.current = false; }}
@@ -57,37 +59,48 @@ function BeforeAfterSlider({ before, after, label, index }: {
         onTouchMove={(e) => { if (dragging.current) updatePos(e.touches[0].clientX); }}
         onTouchEnd={() => { dragging.current = false; }}
       >
-        {/* After image (full) */}
-        <div className="absolute inset-0">
-          <Image src={after} alt={`אחרי - ${label}`} fill className="object-cover" />
-        </div>
+        {/* AFTER — full width background */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={after}
+          alt={`אחרי - ${label}`}
+          className="absolute inset-0 w-full h-full object-cover"
+          draggable={false}
+        />
 
-        {/* Before image (clipped) */}
-        <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
-          <Image src={before} alt={`לפני - ${label}`} fill className="object-cover" style={{ width: `${10000 / pos}%`, maxWidth: "none" }} />
-        </div>
+        {/* BEFORE — clipped to left side using clipPath */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={before}
+          alt={`לפני - ${label}`}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+          draggable={false}
+        />
 
-        {/* Divider line */}
-        <div className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg shadow-white/30" style={{ left: `${pos}%`, transform: "translateX(-50%)" }}>
-          {/* Handle */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-2xl flex items-center justify-center border-2 border-gold-500/50">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M6 4L2 9L6 14" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 4L16 9L12 14" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        {/* Divider */}
+        <div
+          className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-[0_0_12px_rgba(255,255,255,0.6)]"
+          style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
+        >
+          {/* Handle circle */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 bg-white rounded-full shadow-2xl flex items-center justify-center border-2 border-gold-400">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7 5L3 10L7 15" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M13 5L17 10L13 15" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         </div>
 
         {/* Labels */}
-        <span className="absolute top-3 right-3 bg-gray-950/80 text-silver-400 border border-silver-600/40 text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur-sm pointer-events-none">
+        <span className="absolute top-3 right-3 bg-black/70 text-gray-300 border border-white/20 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm pointer-events-none">
           לפני
         </span>
-        <span className="absolute top-3 left-3 bg-gold-500 text-black text-xs font-bold px-2.5 py-1 rounded-full pointer-events-none">
+        <span className="absolute top-3 left-3 bg-gold-500 text-black text-xs font-bold px-3 py-1 rounded-full pointer-events-none">
           אחרי
         </span>
 
-        {/* Hint */}
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/40 text-xs pointer-events-none">
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/50 text-xs pointer-events-none tracking-wider">
           ← גרור →
         </div>
       </div>
