@@ -5,27 +5,26 @@ import { motion } from "framer-motion";
 
 const galleryItems = [
   {
-    // לפני: חדר מלוכלך עם אשפה / אחרי: משרד נקי ומסודר
-    before: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    after:  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-    label:  "ניקיון משרד",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    label: "ניקיון משרד",
   },
   {
-    // לפני: מטבח מלוכלך / אחרי: מטבח נקי ומבריק
-    before: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
-    after:  "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80",
-    label:  "ניקיון מטבח",
+    image: "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80",
+    label: "ניקיון מטבח",
   },
   {
-    // לפני: רצפה מלוכלכת / אחרי: רצפה נקייה ומבריקה
-    before: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800&q=80",
-    after:  "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&q=80",
-    label:  "ניקיון רצפות",
+    image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&q=80",
+    label: "ניקיון רצפות",
   },
 ];
 
-function BeforeAfterSlider({ before, after, label, index }: {
-  before: string; after: string; label: string; index: number;
+// פילטר "לפני" — נראה מלוכלך, ישן, עמום
+const beforeFilter = "brightness(0.55) saturate(0.4) sepia(0.5) contrast(1.1)";
+// פילטר "אחרי" — נקי, מבריק, חי
+const afterFilter  = "brightness(1.15) saturate(1.3) contrast(1.05)";
+
+function BeforeAfterSlider({ image, label, index }: {
+  image: string; label: string; index: number;
 }) {
   const [pos, setPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,7 +34,7 @@ function BeforeAfterSlider({ before, after, label, index }: {
     const el = containerRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    const pct = Math.min(98, Math.max(2, ((clientX - rect.left) / rect.width) * 100));
+    const pct = Math.min(97, Math.max(3, ((clientX - rect.left) / rect.width) * 100));
     setPos(pct);
   }, []);
 
@@ -59,31 +58,35 @@ function BeforeAfterSlider({ before, after, label, index }: {
         onTouchMove={(e) => { if (dragging.current) updatePos(e.touches[0].clientX); }}
         onTouchEnd={() => { dragging.current = false; }}
       >
-        {/* AFTER — full width background */}
+        {/* AFTER — נקי ומבריק, full background */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={after}
+          src={image}
           alt={`אחרי - ${label}`}
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: afterFilter }}
           draggable={false}
         />
 
-        {/* BEFORE — clipped to left side using clipPath */}
+        {/* BEFORE — מלוכלך, clipped to left */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={before}
+          src={image}
           alt={`לפני - ${label}`}
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+          style={{
+            filter: beforeFilter,
+            clipPath: `inset(0 ${100 - pos}% 0 0)`,
+          }}
           draggable={false}
         />
 
-        {/* Divider */}
+        {/* Divider line */}
         <div
-          className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-[0_0_12px_rgba(255,255,255,0.6)]"
+          className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-[0_0_14px_rgba(255,255,255,0.7)]"
           style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
         >
-          {/* Handle circle */}
+          {/* Handle */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 bg-white rounded-full shadow-2xl flex items-center justify-center border-2 border-gold-400">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M7 5L3 10L7 15" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -93,7 +96,7 @@ function BeforeAfterSlider({ before, after, label, index }: {
         </div>
 
         {/* Labels */}
-        <span className="absolute top-3 right-3 bg-black/70 text-gray-300 border border-white/20 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm pointer-events-none">
+        <span className="absolute top-3 right-3 bg-black/80 text-gray-300 border border-white/20 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm pointer-events-none">
           לפני
         </span>
         <span className="absolute top-3 left-3 bg-gold-500 text-black text-xs font-bold px-3 py-1 rounded-full pointer-events-none">
