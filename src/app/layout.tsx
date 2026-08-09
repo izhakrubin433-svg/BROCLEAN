@@ -78,7 +78,7 @@ export default function RootLayout({
                 addressCountry: "IL",
               },
               priceRange: "$$",
-              openingHours: "Mo-Fr 08:00-18:00",
+              openingHours: "Mo-Sa 00:00-24:00",
               serviceArea: { "@type": "Country", name: "Israel" },
             }),
           }}

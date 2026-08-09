@@ -88,12 +88,8 @@ export default function Contact() {
                 <p className="text-gold-400 text-sm mb-4">שעות פעילות</p>
                 <div className="flex flex-col gap-1 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">ראשון - חמישי</span>
-                    <span className="font-semibold text-white">08:00 - 20:00</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">שישי</span>
-                    <span className="font-semibold text-white">08:00 - 14:00</span>
+                    <span className="text-gray-600">א׳–ו׳</span>
+                    <span className="font-semibold text-white">24 שעות ביממה</span>
                   </div>
                 </div>
               </div>
