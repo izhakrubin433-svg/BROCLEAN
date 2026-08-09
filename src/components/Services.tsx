@@ -40,7 +40,7 @@ export default function Services() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="services" className="py-24 bg-gray-950 broclean-watermark">
+    <section id="services" className="py-24 bg-white broclean-watermark">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,10 +48,10 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block bg-gold-500/10 text-gold-400 border border-gold-500/20 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-silver-50 text-gray-600 border border-silver-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             השירותים שלנו
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
             כל מה שאתם צריכים
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">
@@ -69,7 +69,7 @@ export default function Services() {
               transition={{ delay: i * 0.08 }}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              className="relative bg-gray-900 rounded-2xl border border-white/10 hover:border-gold-500/40 transition-all duration-300 card-hover overflow-hidden group shadow-xl"
+              className="relative bg-white rounded-2xl border border-silver-200 hover:border-silver-400 transition-all duration-300 card-hover overflow-hidden group shadow-md hover:shadow-xl"
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
@@ -78,24 +78,24 @@ export default function Services() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gray-950/50 group-hover:bg-gray-950/20 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-white/20 group-hover:bg-white/5 transition-opacity duration-300" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 bg-gray-950/80 border border-gold-500/40 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <service.icon size={26} className="text-gold-400" />
+                  <div className="w-14 h-14 bg-white/90 border border-silver-300 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <service.icon size={26} className="text-gray-700" />
                   </div>
                 </div>
                 {service.tag && (
-                  <span className={`absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full ${service.tag === "חדש" ? "bg-silver-600 text-white" : "bg-gold-500 text-black"}`}>
+                  <span className={`absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full ${service.tag === "חדש" ? "bg-silver-200 text-gray-700" : "bg-gray-900 text-white"}`}>
                     {service.tag}
                   </span>
                 )}
               </div>
 
               <div className="p-5">
-                <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm mb-4">{service.description}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
+                <p className="text-gray-500 leading-relaxed text-sm mb-4">{service.description}</p>
                 <a href="#contact"
-                  className="inline-flex items-center gap-1.5 text-gold-400 hover:text-gold-300 font-semibold text-sm group/link transition-colors">
+                  className="inline-flex items-center gap-1.5 text-gray-700 hover:text-gray-900 font-semibold text-sm group/link transition-colors">
                   לפרטים ויצירת קשר
                   <ArrowLeft size={14} className="group-hover/link:-translate-x-1 transition-transform" />
                 </a>
@@ -107,7 +107,8 @@ export default function Services() {
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     exit={{ scaleX: 0 }}
-                    className="absolute bottom-0 right-0 left-0 h-0.5 bg-gold-500 origin-right"
+                    className="absolute bottom-0 right-0 left-0 h-0.5 origin-right"
+                    style={{background:"linear-gradient(90deg,#9ca3af,#d1d5db,#9ca3af)"}}
                   />
                 )}
               </AnimatePresence>

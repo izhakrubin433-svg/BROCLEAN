@@ -33,7 +33,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-24 bg-gray-950 overflow-hidden">
+    <section id="testimonials" className="py-24 bg-silver-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,17 +41,17 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block bg-gold-500/10 text-gold-400 border border-gold-500/20 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-white text-gray-600 border border-silver-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             המלצות לקוחות
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
             מה אומרים עלינו
           </h2>
           <div className="flex items-center justify-center gap-2">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={20} style={{ fill: "#f59e0b", color: "#f59e0b" }} />
+              <Star key={i} size={20} style={{ fill: "#6b7280", color: "#6b7280" }} />
             ))}
-            <span className="text-white font-bold mr-2">5.0</span>
+            <span className="text-gray-900 font-bold mr-2">5.0</span>
             <span className="text-gray-500 text-sm">מעל 500 ביקורות</span>
           </div>
         </motion.div>
@@ -68,23 +68,24 @@ export default function Testimonials() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 30 }}
                   transition={{ duration: 0.4, delay: i * 0.07 }}
-                  className={`relative bg-gray-900 rounded-2xl p-7 shadow-xl transition-all border ${
-                    i === 1 ? "md:scale-105 border-gold-500/40 shadow-gold-500/10" : "border-white/10 hover:border-silver-600/30"
+                  className={`relative bg-white rounded-2xl p-7 shadow-md transition-all border ${
+                    i === 1 ? "md:scale-105 border-silver-400 shadow-silver-200/60 shadow-xl" : "border-silver-200 hover:border-silver-300"
                   }`}
                 >
-                  <Quote size={28} className="text-gold-500/20 absolute top-6 left-6" />
+                  <Quote size={28} className="text-silver-300 absolute top-6 left-6" />
                   <div className="flex gap-1 mb-4">
                     {[...Array(t.stars)].map((_, j) => (
-                      <Star key={j} size={14} style={{ fill: "#f59e0b", color: "#f59e0b" }} />
+                      <Star key={j} size={14} style={{ fill: "#6b7280", color: "#6b7280" }} />
                     ))}
                   </div>
-                  <p className="text-gray-400 leading-relaxed mb-6 text-sm">{t.text}</p>
+                  <p className="text-gray-600 leading-relaxed mb-6 text-sm">{t.text}</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 bg-gold-500 rounded-full flex items-center justify-center text-black font-bold text-sm shadow-lg shadow-gold-500/30">
+                    <div className="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md"
+                      style={{background:"linear-gradient(135deg,#6b7280,#9ca3af,#d1d5db)"}}>
                       {t.initials}
                     </div>
                     <div>
-                      <div className="font-bold text-white">{t.name}</div>
+                      <div className="font-bold text-gray-900">{t.name}</div>
                       <div className="text-gray-500 text-xs">{t.role}</div>
                     </div>
                   </div>
@@ -95,19 +96,19 @@ export default function Testimonials() {
 
           <div className="flex items-center justify-center gap-4 mt-10">
             <button onClick={prev}
-              className="w-10 h-10 bg-gray-900 hover:bg-gold-500 hover:text-black text-white rounded-full flex items-center justify-center transition-colors border border-white/10">
+              className="w-10 h-10 bg-white hover:bg-gray-900 hover:text-white text-gray-700 rounded-full flex items-center justify-center transition-colors border border-silver-200 shadow-sm">
               <ChevronRight size={20} />
             </button>
             <div className="flex gap-2">
               {testimonials.map((_, i) => (
                 <button key={i} onClick={() => setCurrent(i)}
                   className={`transition-all rounded-full ${
-                    i === current ? "w-6 h-2 bg-gold-500" : "w-2 h-2 bg-white/20 hover:bg-white/40"
+                    i === current ? "w-6 h-2 bg-gray-700" : "w-2 h-2 bg-silver-300 hover:bg-silver-500"
                   }`} />
               ))}
             </div>
             <button onClick={next}
-              className="w-10 h-10 bg-gray-900 hover:bg-gold-500 hover:text-black text-white rounded-full flex items-center justify-center transition-colors border border-white/10">
+              className="w-10 h-10 bg-white hover:bg-gray-900 hover:text-white text-gray-700 rounded-full flex items-center justify-center transition-colors border border-silver-200 shadow-sm">
               <ChevronLeft size={20} />
             </button>
           </div>

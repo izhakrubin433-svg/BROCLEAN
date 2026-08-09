@@ -15,7 +15,7 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="py-24 bg-black overflow-hidden">
+    <section id="why-us" className="py-24 bg-silver-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -26,15 +26,15 @@ export default function WhyUs() {
             viewport={{ once: true }}
             className="relative order-2 lg:order-1"
           >
-            <div className="absolute inset-0 bg-gray-900 rounded-3xl -rotate-3 scale-95 border border-gold-500/10" />
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] border border-white/10">
+            <div className="absolute inset-0 bg-silver-100 rounded-3xl -rotate-3 scale-95 border border-silver-200" />
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-200/60 aspect-[4/5] border border-silver-200">
               <Image
                 src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&q=80"
                 alt="צוות ניקיון מקצועי"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent" />
             </div>
 
             <motion.div
@@ -43,14 +43,14 @@ export default function WhyUs() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
               animate={{ y: [0, -6, 0] }}
-              className="absolute -bottom-6 -left-6 bg-gray-950 rounded-2xl shadow-2xl p-5 border border-gold-500/30"
+              className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-5 border border-silver-200"
             >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gold-500 rounded-xl flex items-center justify-center shadow-lg shadow-gold-500/30">
-                  <ShieldCheck className="text-black" size={22} />
+                <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center shadow-lg">
+                  <ShieldCheck className="text-white" size={22} />
                 </div>
                 <div>
-                  <div className="font-black text-2xl text-white">100%</div>
+                  <div className="font-black text-2xl text-gray-900">100%</div>
                   <div className="text-gray-500 text-sm">שביעות רצון מובטחת</div>
                 </div>
               </div>
@@ -62,10 +62,10 @@ export default function WhyUs() {
               viewport={{ once: true }}
               transition={{ delay: 0.45 }}
               animate={{ y: [0, 6, 0] }}
-              className="absolute -top-6 -right-6 bg-gray-950 border border-silver-600/30 rounded-2xl shadow-2xl p-4 text-white"
+              className="absolute -top-6 -right-6 bg-white border border-silver-200 rounded-2xl shadow-2xl p-4"
             >
               <div className="text-center">
-                <div className="font-black text-3xl text-gold-400">5+</div>
+                <div className="font-black text-3xl text-gray-900">5+</div>
                 <div className="text-gray-500 text-xs">שנות ניסיון</div>
               </div>
             </motion.div>
@@ -78,17 +78,17 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block bg-gold-500/10 text-gold-400 border border-gold-500/20 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+              <span className="inline-block bg-white text-gray-600 border border-silver-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
                 למה לבחור בנו
               </span>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight">
                 הסיבות שלקוחות
                 <br />
-                <span style={{ background: "linear-gradient(135deg,#f59e0b,#fbbf24,#fcd34d)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                <span style={{ background: "linear-gradient(135deg,#374151,#6b7280,#9ca3af)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                   חוזרים אלינו
                 </span>
               </h2>
-              <p className="text-gray-400 text-lg mb-10 leading-relaxed">
+              <p className="text-gray-500 text-lg mb-10 leading-relaxed">
                 אנחנו לא רק חברת ניקיון — אנחנו שותפים לשמירה על הסביבה שלכם. כל פרט חשוב לנו.
               </p>
             </motion.div>
@@ -101,13 +101,13 @@ export default function WhyUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.07 }}
-                  className="flex gap-4 p-4 rounded-2xl border border-transparent hover:border-white/10 hover:bg-white/5 transition-all group"
+                  className="flex gap-4 p-4 rounded-2xl border border-transparent hover:border-silver-200 hover:bg-white transition-all group shadow-sm hover:shadow-md"
                 >
-                  <div className="w-11 h-11 bg-gray-900 group-hover:bg-gold-500 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors border border-white/5">
-                    <f.icon size={20} className="text-silver-400 group-hover:text-black transition-colors" />
+                  <div className="w-11 h-11 bg-silver-100 group-hover:bg-gray-900 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors border border-silver-200">
+                    <f.icon size={20} className="text-gray-600 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white mb-1">{f.title}</h3>
+                    <h3 className="font-bold text-gray-900 mb-1">{f.title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed">{f.description}</p>
                   </div>
                 </motion.div>

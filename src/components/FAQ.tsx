@@ -21,13 +21,13 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.06 }}
-      className="border border-white/10 rounded-2xl overflow-hidden bg-gray-900 hover:border-gold-500/20 transition-colors"
+      className="border border-silver-200 rounded-2xl overflow-hidden bg-white hover:border-silver-400 transition-colors shadow-sm hover:shadow-md"
     >
       <button onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-6 text-right hover:bg-white/5 transition-colors">
-        <span className="font-bold text-white text-lg">{q}</span>
+        className="w-full flex items-center justify-between p-6 text-right hover:bg-silver-50 transition-colors">
+        <span className="font-bold text-gray-900 text-lg">{q}</span>
         <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }} className="flex-shrink-0 mr-4">
-          <ChevronDown size={22} className="text-gold-500" />
+          <ChevronDown size={22} className="text-gray-500" />
         </motion.div>
       </button>
       <AnimatePresence>
@@ -38,7 +38,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <div className="px-6 pb-6 text-gray-400 leading-relaxed border-t border-white/5 pt-4">{a}</div>
+            <div className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-silver-100 pt-4">{a}</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -48,7 +48,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 bg-gray-950 broclean-watermark">
+    <section id="faq" className="py-24 bg-white broclean-watermark">
       <div className="max-w-3xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,10 +56,10 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block bg-silver-800/30 text-silver-400 border border-silver-600/20 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-silver-50 text-gray-600 border border-silver-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             שאלות נפוצות
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">יש לכם שאלות?</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">יש לכם שאלות?</h2>
           <p className="text-gray-500 text-lg">ריכזנו את השאלות הנפוצות ביותר. לא מצאתם תשובה? צרו קשר!</p>
         </motion.div>
         <div className="flex flex-col gap-3">

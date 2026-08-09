@@ -33,15 +33,15 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export default function StatsSection() {
   return (
-    <section className="py-20 bg-gray-950 relative overflow-hidden">
+    <section className="py-20 bg-white relative overflow-hidden">
       {/* Silver line top */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent" />
-      {/* Silver metallic line bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-px" style={{background:"linear-gradient(90deg,transparent,rgba(209,213,219,0.6) 30%,rgba(249,250,251,0.9) 50%,rgba(209,213,219,0.6) 70%,transparent)"}} />
+      <div className="absolute top-0 left-0 right-0 h-px" style={{background:"linear-gradient(90deg,transparent,rgba(156,163,175,0.6) 30%,rgba(209,213,219,0.9) 50%,rgba(156,163,175,0.6) 70%,transparent)"}} />
+      {/* Silver line bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-px" style={{background:"linear-gradient(90deg,transparent,rgba(156,163,175,0.6) 30%,rgba(209,213,219,0.9) 50%,rgba(156,163,175,0.6) 70%,transparent)"}} />
 
       {/* Background glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[200px] rounded-full blur-3xl" style={{ background: "radial-gradient(ellipse, rgba(245,158,11,0.06) 0%, transparent 70%)" }} />
+        <div className="w-[600px] h-[200px] rounded-full blur-3xl" style={{ background: "radial-gradient(ellipse, rgba(209,213,219,0.15) 0%, transparent 70%)" }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -55,17 +55,14 @@ export default function StatsSection() {
               transition={{ delay: i * 0.1 }}
               className="text-center group"
             >
-              {/* Number */}
               <div className="text-4xl md:text-5xl font-black mb-2"
-                style={{ background: "linear-gradient(135deg,#f59e0b,#fbbf24,#fcd34d)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                style={{ background: "linear-gradient(135deg,#374151,#6b7280,#9ca3af)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 <Counter value={s.value} suffix={s.suffix} />
               </div>
-              {/* Hebrew label */}
-              <div className="font-bold text-white text-base mb-1">{s.label}</div>
-              {/* English sub */}
-              <div className="text-gray-600 text-xs tracking-widest uppercase">{s.sub}</div>
-              {/* Gold underline on hover */}
-              <div className="mt-3 mx-auto w-8 h-0.5 bg-gold-500/30 group-hover:w-16 group-hover:bg-gold-500/70 transition-all duration-500 rounded-full" />
+              <div className="font-bold text-gray-900 text-base mb-1">{s.label}</div>
+              <div className="text-gray-400 text-xs tracking-widest uppercase">{s.sub}</div>
+              <div className="mt-3 mx-auto w-8 h-0.5 rounded-full transition-all duration-500 group-hover:w-16"
+                style={{background:"linear-gradient(90deg,#9ca3af,#d1d5db,#9ca3af)"}} />
             </motion.div>
           ))}
         </div>

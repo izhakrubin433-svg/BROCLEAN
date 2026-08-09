@@ -18,16 +18,16 @@ export default function ParticlesBackground() {
     resize();
     window.addEventListener("resize", resize);
 
-    const count = 70;
+    const count = 60;
     const particles = Array.from({ length: count }, () => ({
       x:  Math.random() * canvas.width,
       y:  Math.random() * canvas.height,
       r:  Math.random() * 1.5 + 0.3,
-      dx: (Math.random() - 0.5) * 0.3,
-      dy: (Math.random() - 0.5) * 0.3,
-      // alternate gold and silver
-      color: Math.random() > 0.5 ? "rgba(245,158,11," : "rgba(209,213,219,",
-      alpha: Math.random() * 0.4 + 0.1,
+      dx: (Math.random() - 0.5) * 0.25,
+      dy: (Math.random() - 0.5) * 0.25,
+      // silver tones for white background
+      color: Math.random() > 0.5 ? "rgba(156,163,175," : "rgba(209,213,219,",
+      alpha: Math.random() * 0.35 + 0.08,
     }));
 
     let raf: number;

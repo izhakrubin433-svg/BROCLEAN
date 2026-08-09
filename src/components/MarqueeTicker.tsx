@@ -18,15 +18,14 @@ const items = [
   { icon: Clock,       text: "24/6 Available" },
 ];
 
-// duplicate for seamless loop
 const doubled = [...items, ...items];
 
 export default function MarqueeTicker() {
   return (
-    <div className="py-4 bg-black border-y border-white/5 overflow-hidden relative">
+    <div className="py-4 bg-silver-50 border-y border-silver-200 overflow-hidden relative">
       {/* Fade edges */}
-      <div className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #000, transparent)" }} />
-      <div className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #000, transparent)" }} />
+      <div className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #f8f9fa, transparent)" }} />
+      <div className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #f8f9fa, transparent)" }} />
 
       <motion.div
         animate={{ x: ["0%", "-50%"] }}
@@ -34,10 +33,10 @@ export default function MarqueeTicker() {
         className="flex gap-10 whitespace-nowrap w-max"
       >
         {doubled.map((item, i) => (
-          <div key={i} className="flex items-center gap-2.5 text-gray-500 hover:text-gold-400 transition-colors">
-            <item.icon size={14} className="text-gold-500/60 flex-shrink-0" />
+          <div key={i} className="flex items-center gap-2.5 text-gray-500 hover:text-gray-800 transition-colors">
+            <item.icon size={14} className="text-silver-500 flex-shrink-0" />
             <span className="text-sm font-medium tracking-wide">{item.text}</span>
-            <span className="text-gold-500/30 text-lg">·</span>
+            <span className="text-silver-400 text-lg">·</span>
           </div>
         ))}
       </motion.div>

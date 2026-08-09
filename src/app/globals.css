@@ -9,7 +9,6 @@
   --silver-light: #e8eaed;
   --silver-mid:   #b0b8c1;
   --silver-dark:  #6b7280;
-  --gold:         #f59e0b;
 }
 
 * { box-sizing: border-box; }
@@ -33,13 +32,13 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f8f9fa; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #c9d0d8, #9ca3af);
+  background: linear-gradient(180deg, #9ca3af, #d1d5db, #9ca3af);
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
 
 /* ── Selection ── */
-::selection { background: #d1d5db; color: #111827; }
+::selection { background: #e5e7eb; color: #111827; }
 
 /* ══════════════════════════════════════════
    BROCLEAN WATERMARK — luxury background text
@@ -61,10 +60,10 @@ body {
   pointer-events: none;
   user-select: none;
   background: linear-gradient(135deg,
-    rgba(209,213,219,0.12) 0%,
-    rgba(229,231,235,0.18) 30%,
-    rgba(156,163,175,0.10) 60%,
-    rgba(209,213,219,0.14) 100%
+    rgba(156,163,175,0.07) 0%,
+    rgba(209,213,219,0.11) 30%,
+    rgba(229,231,235,0.08) 60%,
+    rgba(156,163,175,0.07) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -79,20 +78,9 @@ body {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(209,213,219,0.3) 20%,
-    rgba(229,231,235,0.7) 50%,
-    rgba(209,213,219,0.3) 80%,
-    transparent 100%
-  );
-}
-
-.silver-line-gold {
-  height: 1px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(245,158,11,0.2) 20%,
-    rgba(251,191,36,0.5) 50%,
-    rgba(245,158,11,0.2) 80%,
+    rgba(156,163,175,0.4) 20%,
+    rgba(209,213,219,0.8) 50%,
+    rgba(156,163,175,0.4) 80%,
     transparent 100%
   );
 }
@@ -103,20 +91,13 @@ body {
 @layer utilities {
   .text-balance { text-wrap: balance; }
 
-  .gradient-text {
-    background: linear-gradient(135deg, #9ca3af, #d1d5db, #f3f4f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
   .gradient-text-silver {
     background: linear-gradient(135deg,
-      #6b7280 0%,
-      #d1d5db 35%,
-      #f9fafb 50%,
-      #d1d5db 65%,
-      #9ca3af 100%
+      #374151 0%,
+      #6b7280 35%,
+      #9ca3af 50%,
+      #6b7280 65%,
+      #374151 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -124,10 +105,10 @@ body {
   }
 
   .glass {
-    background: rgba(255,255,255,0.80);
+    background: rgba(255,255,255,0.90);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(209,213,219,0.4);
+    border: 1px solid rgba(209,213,219,0.5);
   }
 
   .card-hover {
@@ -135,10 +116,9 @@ body {
   }
   .card-hover:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 60px -10px rgba(156,163,175,0.25);
+    box-shadow: 0 20px 60px -10px rgba(156,163,175,0.20);
   }
 
-  /* Silver metallic border */
   .border-silver-metallic {
     border: 1px solid;
     border-image: linear-gradient(135deg, #d1d5db, #f9fafb, #9ca3af) 1;
@@ -153,9 +133,9 @@ body {
   height: 1px;
   background: linear-gradient(90deg,
     transparent,
-    rgba(209,213,219,0.6) 30%,
-    rgba(249,250,251,0.9) 50%,
-    rgba(209,213,219,0.6) 70%,
+    rgba(156,163,175,0.5) 30%,
+    rgba(209,213,219,0.9) 50%,
+    rgba(156,163,175,0.5) 70%,
     transparent
   );
   margin: 0;
@@ -164,12 +144,6 @@ body {
 /* ══════════════════════════════════════════
    ANIMATIONS
    ══════════════════════════════════════════ */
-@keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 @keyframes shimmer {
   0%   { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
@@ -178,7 +152,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(209,213,219,0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(209,213,219,0.5), transparent);
   animation: shimmer 2.5s infinite;
 }
 
@@ -187,19 +161,6 @@ body {
   50%       { transform: translateY(-12px); }
 }
 .float { animation: float 4s ease-in-out infinite; }
-
-@keyframes pulseRing {
-  0%   { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(1.6); opacity: 0; }
-}
-.pulse-ring::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: currentColor;
-  animation: pulseRing 2s ease-out infinite;
-}
 
 /* Silver shimmer on hover for buttons */
 @keyframes silverShimmer {
@@ -215,6 +176,6 @@ body {
   position: absolute;
   top: 0; bottom: 0;
   width: 40%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
   animation: silverShimmer 2.5s ease-in-out infinite;
 }
