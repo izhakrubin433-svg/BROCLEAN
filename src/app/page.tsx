@@ -16,6 +16,14 @@ import FloatingButtons from "@/components/FloatingButtons";
 import ScrollProgress  from "@/components/ScrollProgress";
 import CursorSpotlight from "@/components/CursorSpotlight";
 
+function SilverDivider() {
+  return (
+    <div className="w-full overflow-hidden" aria-hidden>
+      <div className="section-divider" />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <main>
@@ -25,14 +33,23 @@ export default function Home() {
       <Hero />
       <MarqueeTicker />
       <TrustBar />
+      <SilverDivider />
       <Services />
+      <SilverDivider />
       <StatsSection />
+      <SilverDivider />
       <Process />
+      <SilverDivider />
       <WhyUs />
+      <SilverDivider />
       <Gallery />
+      <SilverDivider />
       <Testimonials />
+      <SilverDivider />
       <CTABanner />
+      <SilverDivider />
       <FAQ />
+      <SilverDivider />
       <Contact />
       <Footer />
       <FloatingButtons />

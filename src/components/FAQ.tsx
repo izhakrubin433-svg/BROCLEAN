@@ -48,7 +48,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 bg-gray-950">
+    <section id="faq" className="py-24 bg-gray-950 broclean-watermark">
       <div className="max-w-3xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

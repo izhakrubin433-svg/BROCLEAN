@@ -34,10 +34,10 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 export default function StatsSection() {
   return (
     <section className="py-20 bg-gray-950 relative overflow-hidden">
-      {/* Gold line top */}
+      {/* Silver line top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent" />
-      {/* Gold line bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent" />
+      {/* Silver metallic line bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-px" style={{background:"linear-gradient(90deg,transparent,rgba(209,213,219,0.6) 30%,rgba(249,250,251,0.9) 50%,rgba(209,213,219,0.6) 70%,transparent)"}} />
 
       {/* Background glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

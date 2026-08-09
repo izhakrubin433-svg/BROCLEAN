@@ -15,7 +15,7 @@ const items = [
   { icon: ShieldCheck, text: "ביטוח מלא" },
   { icon: Award,       text: "Professional Team" },
   { icon: Star,        text: "Top Rated" },
-  { icon: Clock,       text: "24/7 Available" },
+  { icon: Clock,       text: "24/6 Available" },
 ];
 
 // duplicate for seamless loop

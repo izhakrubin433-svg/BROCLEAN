@@ -32,7 +32,7 @@ const stats = [
   { target: 500, suffix: "+",  label: "לקוחות מרוצים" },
   { target: 5,   suffix: "+",  label: "שנות ניסיון" },
   { target: 100, suffix: "%",  label: "שביעות רצון" },
-  { target: 24,  suffix: "/7", label: "זמינות" },
+  { target: 24,  suffix: "/6", label: "זמינות" },
 ];
 
 const trustBadges = [

@@ -26,7 +26,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="py-24 bg-gray-950">
+    <section id="process" className="py-24 bg-gray-950 broclean-watermark">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -40,7 +40,7 @@ export default function Services() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="services" className="py-24 bg-gray-950">
+    <section id="services" className="py-24 bg-gray-950 broclean-watermark">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
