@@ -15,6 +15,7 @@ import Footer          from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import ScrollProgress  from "@/components/ScrollProgress";
 import CursorSpotlight from "@/components/CursorSpotlight";
+import MobileCTA       from "@/components/MobileCTA";
 
 function SilverDivider() {
   return (
@@ -53,6 +54,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <FloatingButtons />
+      <MobileCTA />
     </main>
   );
 }
