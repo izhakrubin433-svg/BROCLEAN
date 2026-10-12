@@ -109,12 +109,12 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 {[
-                  { label: "שם מלא *", type: "text", key: "name", placeholder: "ישראל ישראלי", required: true },
-                  { label: "טלפון *",  type: "tel",  key: "phone", placeholder: "050-232-8041", required: true, dir: "ltr" },
-                ].map(({ label, type, key, placeholder, required, dir }) => (
+                  { label: "שם מלא *", type: "text", key: "name", placeholder: "ישראל ישראלי", required: true, autoComplete: "name" },
+                  { label: "טלפון *",  type: "tel",  key: "phone", placeholder: "050-232-8041", required: true, dir: "ltr", autoComplete: "tel" },
+                ].map(({ label, type, key, placeholder, required, dir, autoComplete }) => (
                   <div key={key}>
                     <label className="block text-sm font-semibold text-gray-600 mb-2">{label}</label>
-                    <input type={type} required={required} dir={dir}
+                    <input type={type} required={required} dir={dir} autoComplete={autoComplete}
                       value={form[key as keyof typeof form]}
                       onChange={(e) => setForm({ ...form, [key]: e.target.value })}
                       placeholder={placeholder}

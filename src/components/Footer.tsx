@@ -19,8 +19,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 leading-relaxed mb-6 max-w-sm">
-              שירותי ניקיון מקצועיים למשרדים ובניינים. עבודה יסודית, אמינה ומוקפדת
-              להתאמה מקסימלית לרכבי משרדים ולשכונות המשותפות.
+              שירותי ניקיון מקצועיים למשרדים, בניינים וקליניקות. עבודה יסודית, אמינה ומוקפדת — כי הסביבה שלכם חשובה לנו.
             </p>
             <div className="flex gap-3">
               {[
@@ -31,6 +30,7 @@ export default function Footer() {
                 <a key={href} href={href}
                   target={external ? "_blank" : undefined}
                   rel={external ? "noopener noreferrer" : undefined}
+                  aria-label={href.includes("tel") ? "התקשר אלינו" : href.includes("wa.me") ? "WhatsApp" : "שלח אימייל"}
                   className="w-10 h-10 bg-white/5 hover:bg-white hover:text-gray-900 rounded-xl flex items-center justify-center transition-colors border border-white/10">
                   <Icon size={18} />
                 </a>

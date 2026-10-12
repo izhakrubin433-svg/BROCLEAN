@@ -7,7 +7,7 @@ import { Star, ChevronRight, ChevronLeft, Quote } from "lucide-react";
 const testimonials = [
   { name: "דנה כהן",    role: "מנהלת משרד, תל אביב",          text: "Broclean עושים עבודה מדהימה! המשרד שלנו נראה כמו חדש אחרי כל ניקיון. הצוות מקצועי, אמין ותמיד מגיע בזמן.", stars: 5, initials: "ד.כ" },
   { name: "יוסי לוי",   role: "מנהל בניין משרדים, ירושלים",   text: "מאז שהתחלנו לעבוד עם Broclean, חדר המדרגות והלובי שלנו תמיד נקיים ומסודרים. כל הדיירים מרוצים מאיכות השירות.", stars: 5, initials: "י.ל" },
-  { name: "מיכל אברהם", role: "מנהלת מנהל עסקים, חיפה",       text: "כל שטח העבודה שלנו מטופל ברמה גבוהה. השירות מקצועי, צוות אחראי ותוצאות נקיות לאורך זמן.", stars: 5, initials: "מ.א" },
+  { name: "מיכל אברהם", role: "מנהלת עסקים, חיפה",             text: "כל שטח העבודה שלנו מטופל ברמה גבוהה. השירות מקצועי, צוות אחראי ותוצאות נקיות לאורך זמן.", stars: 5, initials: "מ.א" },
   { name: "אבי שמש",    role: "מנהל בניין, רמת גן",            text: "ניקיון הבניין שלנו השתפר פלאים מאז שעברנו ל-Broclean. חדר המדרגות תמיד נקי ומסודר. שירות מקצועי ברמה גבוהה.", stars: 5, initials: "א.ש" },
   { name: "רחל גולן",   role: "מנהלת משרד, פתח תקווה",         text: "הצוות הגיע בזמן ועבד ביסודיות. האזור המשותף של המשרד נראה מדהים והעבודה בוצעה בצורה אחראית ומקצועית.", stars: 5, initials: "ר.ג" },
   { name: "עמית ברק",   role: "מנהל חברה, הרצליה",             text: "Broclean מנקים את המשרדים שלנו כבר שלוש שנים. תמיד אמינים, תמיד מקצועיים. לא מחפשים אחרים — הם הכי טובים שעבדנו איתם.", stars: 5, initials: "ע.ב" },
@@ -96,6 +96,7 @@ export default function Testimonials() {
 
           <div className="flex items-center justify-center gap-4 mt-10">
             <button onClick={prev}
+              aria-label="המלצה קודמת"
               className="w-10 h-10 bg-white hover:bg-gray-900 hover:text-white text-gray-700 rounded-full flex items-center justify-center transition-colors border border-silver-200 shadow-sm">
               <ChevronRight size={20} />
             </button>
@@ -108,6 +109,7 @@ export default function Testimonials() {
               ))}
             </div>
             <button onClick={next}
+              aria-label="המלצה הבאה"
               className="w-10 h-10 bg-white hover:bg-gray-900 hover:text-white text-gray-700 rounded-full flex items-center justify-center transition-colors border border-silver-200 shadow-sm">
               <ChevronLeft size={20} />
             </button>

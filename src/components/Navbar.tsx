@@ -11,6 +11,7 @@ const navLinks = [
   { label: "גלריה",        href: "#gallery" },
   { label: "המלצות",       href: "#testimonials" },
   { label: "שאלות נפוצות", href: "#faq" },
+  { label: "צור קשר",     href: "#contact" },
 ];
 
 export default function Navbar() {

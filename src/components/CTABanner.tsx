@@ -33,7 +33,8 @@ export default function CTABanner() {
               050-232-8041
             </a>
             <a href="https://wa.me/972502328041" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-2 border border-silver-500/40 bg-transparent text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:bg-white/10 hover:border-silver-300">
+              className="flex items-center gap-2 border border-silver-500/40 bg-transparent text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:bg-white/10 hover:border-silver-300"
+              aria-label="שלח הודעת WhatsApp">
               <MessageCircle size={20} />
               שלחו הודעה
             </a>
