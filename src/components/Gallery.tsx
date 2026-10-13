@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 const galleryItems = [
   {
-    before: "/clean-office.jpg",
-    after:  "/dirty-office.jpg",
+    before: "/dirty-office.jpg",
+    after:  "/clean-office.jpg",
     label:  "ניקיון משרד",
   },
   {
@@ -56,7 +56,7 @@ function BeforeAfterSlider({ before, after, label, index }: {
         onTouchMove={(e) => { if (dragging.current) updatePos(e.touches[0].clientX); }}
         onTouchEnd={() => { dragging.current = false; }}
       >
-        {/* AFTER — תמונה נקייה, רקע מלא */}
+        {/* AFTER — תמונה נקייה, רקע מלא בצד שמאל */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={after}
@@ -65,13 +65,13 @@ function BeforeAfterSlider({ before, after, label, index }: {
           draggable={false}
         />
 
-        {/* BEFORE — תמונה מלוכלכת, חתוכה לצד ימין */}
+        {/* BEFORE — תמונה מלוכלכת, מכסה מצד ימין עד לסליידר */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={before}
           alt={`לפני - ${label}`}
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+          style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
           draggable={false}
         />
 
