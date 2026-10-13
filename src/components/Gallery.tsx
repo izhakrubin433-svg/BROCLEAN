@@ -5,24 +5,58 @@ import { motion } from "framer-motion";
 
 const galleryItems = [
   {
-    before: "https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&q=80",
+    // משרד — לפני: שולחנות עמוסים ומבולגנים / אחרי: משרד נקי ומסודר
+    before: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80",
     after:  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
     label:  "ניקיון משרד",
+    beforeFilter: "brightness(0.72) saturate(0.6) contrast(1.15) sepia(0.25)",
+    afterFilter:  "brightness(1.04) saturate(1.1)",
   },
   {
-    before: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80",
+    // לובי בניין — לפני: רצפה מלוכלכת / אחרי: לובי מבריק
+    before: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
+    after:  "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+    label:  "ניקיון לובי בניין",
+    beforeFilter: "brightness(0.65) saturate(0.5) contrast(1.2) sepia(0.3)",
+    afterFilter:  "brightness(1.05) saturate(1.15)",
+  },
+  {
+    // מטבח משרדי — לפני: משטחים מלוכלכים / אחרי: מטבח נקי
+    before: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
     after:  "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80",
-    label:  "ניקיון מטבח",
+    label:  "ניקיון מטבח משרדי",
+    beforeFilter: "brightness(0.68) saturate(0.55) contrast(1.18) sepia(0.2)",
+    afterFilter:  "brightness(1.03) saturate(1.1)",
   },
   {
+    // חלל עבודה — לפני: עמוס ומאובק / אחרי: נקי ומזמין
     before: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80",
     after:  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
-    label:  "ניקיון חלל עבודה",
+    label:  "חלל עבודה משותף",
+    beforeFilter: "brightness(0.7) saturate(0.5) contrast(1.2) sepia(0.22)",
+    afterFilter:  "brightness(1.04) saturate(1.12)",
+  },
+  {
+    // קליניקה — לפני: חדר ישן / אחרי: חדר רפואי נקי
+    before: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
+    after:  "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80",
+    label:  "ניקיון קליניקה",
+    beforeFilter: "brightness(0.66) saturate(0.45) contrast(1.22) sepia(0.28)",
+    afterFilter:  "brightness(1.06) saturate(1.08)",
+  },
+  {
+    // חדר ישיבות — לפני: שולחן עמוס / אחרי: חדר ישיבות מוכן
+    before: "https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&q=80",
+    after:  "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80",
+    label:  "חדר ישיבות",
+    beforeFilter: "brightness(0.69) saturate(0.52) contrast(1.17) sepia(0.24)",
+    afterFilter:  "brightness(1.04) saturate(1.1)",
   },
 ];
 
-function BeforeAfterSlider({ before, after, label, index }: {
+function BeforeAfterSlider({ before, after, label, index, beforeFilter, afterFilter }: {
   before: string; after: string; label: string; index: number;
+  beforeFilter: string; afterFilter: string;
 }) {
   const [pos, setPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -62,6 +96,7 @@ function BeforeAfterSlider({ before, after, label, index }: {
           src={after}
           alt={`אחרי - ${label}`}
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: afterFilter }}
           draggable={false}
         />
 
@@ -71,7 +106,7 @@ function BeforeAfterSlider({ before, after, label, index }: {
           src={before}
           alt={`לפני - ${label}`}
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)`, filter: beforeFilter }}
           draggable={false}
         />
 
