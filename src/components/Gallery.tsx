@@ -5,19 +5,16 @@ import { motion } from "framer-motion";
 
 const galleryItems = [
   {
-    // לפני: משרד עמוס ומבולגן — אחרי: משרד נקי ומסודר
-    before: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
-    after:  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    before: "/dirty-office.jpg",
+    after:  "/clean-office.jpg",
     label:  "ניקיון משרד",
   },
   {
-    // לפני: מטבח מלוכלך ועמוס — אחרי: מטבח נקי ומבריק
     before: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
     after:  "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=800&q=80",
     label:  "ניקיון מטבח",
   },
   {
-    // לפני: חלל עבודה עמוס — אחרי: חלל נקי ומזמין
     before: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800&q=80",
     after:  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
     label:  "חלל עבודה",
