@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 const galleryItems = [
   {
-    before: "/dirty-office.jpg",
-    after:  "/clean-office.jpg",
+    before: "/clean-office.jpg",
+    after:  "/dirty-office.jpg",
     label:  "ניקיון משרד",
   },
   {
